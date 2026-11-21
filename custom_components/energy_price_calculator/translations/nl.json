@@ -1,0 +1,46 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Energieleverancier toevoegen",
+        "description": "Leveranciersprijs = (marktprijs + inkoopvergoeding + energiebelasting) × (1 + btw%). Prijzen per kWh (stroom) of per m³ (gas), exclusief btw.",
+        "data": {
+          "supplier": "Naam leverancier",
+          "commodity": "Soort",
+          "source_entity": "Marktprijs-sensor",
+          "prices_attribute": "Attribuut met prijslijst",
+          "source_includes_vat": "Bronprijs is al inclusief btw",
+          "extra_cost": "Inkoopvergoeding (excl. btw)",
+          "tax": "Energiebelasting (excl. btw)",
+          "vat": "Btw (%)"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Deze leverancier is al toegevoegd."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Tarief wijzigen",
+        "data": {
+          "source_entity": "Marktprijs-sensor",
+          "prices_attribute": "Attribuut met prijslijst",
+          "source_includes_vat": "Bronprijs is al inclusief btw",
+          "extra_cost": "Inkoopvergoeding (excl. btw)",
+          "tax": "Energiebelasting (excl. btw)",
+          "vat": "Btw (%)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "commodity": {
+      "options": {
+        "electricity": "Stroom",
+        "gas": "Gas"
+      }
+    }
+  }
+}
