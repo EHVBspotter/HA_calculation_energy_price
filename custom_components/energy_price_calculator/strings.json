@@ -1,0 +1,46 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add energy supplier",
+        "description": "Supplier price = (market price + extra cost + tax) \u00d7 (1 + VAT%). Prices per kWh (electricity) or per m\u00b3 (gas), excluding VAT.",
+        "data": {
+          "supplier": "Supplier name",
+          "commodity": "Type",
+          "source_entity": "Market price sensor",
+          "prices_attribute": "Attribute with price list",
+          "source_includes_vat": "Source price already includes VAT",
+          "extra_cost": "Purchase fee / markup (ex VAT)",
+          "tax": "Energy tax (ex VAT)",
+          "vat": "VAT (%)"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "This supplier is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Change tariff",
+        "data": {
+          "source_entity": "Market price sensor",
+          "prices_attribute": "Attribute with price list",
+          "source_includes_vat": "Source price already includes VAT",
+          "extra_cost": "Purchase fee / markup (ex VAT)",
+          "tax": "Energy tax (ex VAT)",
+          "vat": "VAT (%)"
+        }
+      }
+    }
+  },
+  "selector": {
+    "commodity": {
+      "options": {
+        "electricity": "Electricity",
+        "gas": "Gas"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "domain": "energy_price_calculator",
+  "name": "Energy Price Calculator",
+  "codeowners": ["@EHVBspotter"],
+  "config_flow": true,
+  "documentation": "https://github.com/EHVBspotter/HA_calculation_energy_price",
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "issue_tracker": "https://github.com/EHVBspotter/HA_calculation_energy_price/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
