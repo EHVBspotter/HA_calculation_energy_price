@@ -28,7 +28,7 @@ from .const import (
 
 _NUM = selector.NumberSelector(
     selector.NumberSelectorConfig(
-        min=-10, max=10, step=0.00001, mode=selector.NumberSelectorMode.BOX
+        min=-10, max=10, step="any", mode=selector.NumberSelectorMode.BOX
     )
 )
 
@@ -54,7 +54,7 @@ def _schema(d: dict[str, Any], with_identity: bool) -> vol.Schema:
     fields[vol.Required(CONF_EXTRA_COST, default=d.get(CONF_EXTRA_COST, 0.0))] = _NUM
     fields[vol.Required(CONF_TAX, default=d.get(CONF_TAX, 0.0))] = _NUM
     fields[vol.Required(CONF_VAT, default=d.get(CONF_VAT, DEFAULT_VAT))] = selector.NumberSelector(
-        selector.NumberSelectorConfig(min=0, max=100, step=0.1, mode=selector.NumberSelectorMode.BOX)
+        selector.NumberSelectorConfig(min=0, max=100, step="any", mode=selector.NumberSelectorMode.BOX)
     )
     return vol.Schema(fields)
 
