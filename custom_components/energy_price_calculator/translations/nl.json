@@ -3,11 +3,11 @@
     "step": {
       "user": {
         "title": "Energieleverancier toevoegen",
-        "description": "Leveranciersprijs = (marktprijs + inkoopvergoeding + energiebelasting) × (1 + btw%). Prijzen per kWh (stroom) of per m³ (gas), exclusief btw.",
+        "description": "Leveranciersprijs = (marktprijs + inkoopvergoeding + energiebelasting) × (1 + btw%). Vul inkoopvergoeding en energiebelasting in EXCLUSIEF btw (op de website van een leverancier staan bedragen vaak inclusief btw: deel die door 1,21). Prijzen per kWh (stroom) of per m³ (gas). Gebruik als bron de marktprijs-sensor zonder btw.",
         "data": {
           "supplier": "Naam leverancier",
           "commodity": "Soort",
-          "source_entity": "Marktprijs-sensor",
+          "source_entity": "Marktprijs-sensor (excl. btw)",
           "prices_attribute": "Attribuut met prijslijst",
           "source_includes_vat": "Bronprijs is al inclusief btw",
           "extra_cost": "Inkoopvergoeding (excl. btw)",
@@ -25,13 +25,14 @@
       "init": {
         "title": "Tarief wijzigen",
         "data": {
-          "source_entity": "Marktprijs-sensor",
+          "source_entity": "Marktprijs-sensor (excl. btw)",
           "prices_attribute": "Attribuut met prijslijst",
           "source_includes_vat": "Bronprijs is al inclusief btw",
           "extra_cost": "Inkoopvergoeding (excl. btw)",
           "tax": "Energiebelasting (excl. btw)",
           "vat": "Btw (%)"
-        }
+        },
+        "description": "Leveranciersprijs = (marktprijs + inkoopvergoeding + energiebelasting) × (1 + btw%). Vul inkoopvergoeding en energiebelasting in EXCLUSIEF btw (op de website van een leverancier staan bedragen vaak inclusief btw: deel die door 1,21). Prijzen per kWh (stroom) of per m³ (gas). Gebruik als bron de marktprijs-sensor zonder btw."
       }
     }
   },
@@ -40,6 +41,28 @@
       "options": {
         "electricity": "Stroom",
         "gas": "Gas"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "price": {
+        "name": "Prijs"
+      },
+      "next_price": {
+        "name": "Volgende prijs"
+      },
+      "lowest_today": {
+        "name": "Laagste prijs vandaag"
+      },
+      "highest_today": {
+        "name": "Hoogste prijs vandaag"
+      },
+      "average_today": {
+        "name": "Gemiddelde prijs vandaag"
+      },
+      "average_tomorrow": {
+        "name": "Gemiddelde prijs morgen"
       }
     }
   }
