@@ -30,6 +30,12 @@ from .const import (
 )
 
 
+def _commodity_label(gas: bool, lang: str) -> str:
+    if lang.startswith("nl"):
+        return "gas" if gas else "stroom"
+    return "gas" if gas else "electricity"
+
+
 @dataclass(frozen=True)
 class Desc:
     key: str
@@ -83,7 +89,8 @@ DESCRIPTIONS = [
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
-    async_add_entities(SupplierPriceSensor(entry, d, i == 0) for i, d in enumerate(DESCRIPTIONS))
+    lang = hass.config.language
+    async_add_entities(SupplierPriceSensor(entry, d, i == 0, lang) for i, d in enumerate(DESCRIPTIONS))
 
 
 class SupplierPriceSensor(SensorEntity):
@@ -94,18 +101,18 @@ class SupplierPriceSensor(SensorEntity):
     _attr_state_class = SensorStateClass.MEASUREMENT
     _attr_suggested_display_precision = 4
 
-    def __init__(self, entry: ConfigEntry, desc: Desc, main: bool) -> None:
+    def __init__(self, entry: ConfigEntry, desc: Desc, main: bool, lang: str = "en") -> None:
         self._entry = entry
         self._desc = desc
         self._main = main
         c = {**entry.data, **entry.options}
         gas = c[CONF_COMMODITY] == COMMODITY_GAS
         self._attr_unique_id = f"{entry.entry_id}_{desc.key}"
-        self._attr_name = desc.name
+        self._attr_translation_key = desc.key
         self._attr_native_unit_of_measurement = "€/m³" if gas else "€/kWh"
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, entry.entry_id)},
-            name=f"{c[CONF_SUPPLIER]} ({'gas' if gas else 'electricity'})",
+            name=f"{c[CONF_SUPPLIER]} ({_commodity_label(gas, lang)})",
             entry_type=None,
         )
         self._attr_native_value = None

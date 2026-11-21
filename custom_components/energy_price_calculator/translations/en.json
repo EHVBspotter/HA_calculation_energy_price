@@ -3,7 +3,7 @@
     "step": {
       "user": {
         "title": "Add energy supplier",
-        "description": "Supplier price = (market price + extra cost + tax) × (1 + VAT%). Prices per kWh (electricity) or per m³ (gas), excluding VAT.",
+        "description": "Supplier price = (market price + purchase fee + energy tax) × (1 + VAT%). Enter fee and tax EXCLUDING VAT (a supplier website often shows amounts including VAT: divide those by 1.21). Prices per kWh (electricity) or per m³ (gas). Use the market price sensor excluding VAT as source.",
         "data": {
           "supplier": "Supplier name",
           "commodity": "Type",
@@ -16,7 +16,9 @@
         }
       }
     },
-    "abort": {"already_configured": "This supplier is already configured."}
+    "abort": {
+      "already_configured": "This supplier is already configured."
+    }
   },
   "options": {
     "step": {
@@ -29,9 +31,39 @@
           "extra_cost": "Purchase fee / markup (ex VAT)",
           "tax": "Energy tax (ex VAT)",
           "vat": "VAT (%)"
-        }
+        },
+        "description": "Supplier price = (market price + purchase fee + energy tax) × (1 + VAT%). Enter fee and tax EXCLUDING VAT (a supplier website often shows amounts including VAT: divide those by 1.21). Prices per kWh (electricity) or per m³ (gas). Use the market price sensor excluding VAT as source."
       }
     }
   },
-  "selector": {"commodity": {"options": {"electricity": "Electricity", "gas": "Gas"}}}
+  "selector": {
+    "commodity": {
+      "options": {
+        "electricity": "Electricity",
+        "gas": "Gas"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "price": {
+        "name": "Price"
+      },
+      "next_price": {
+        "name": "Next price"
+      },
+      "lowest_today": {
+        "name": "Lowest price today"
+      },
+      "highest_today": {
+        "name": "Highest price today"
+      },
+      "average_today": {
+        "name": "Average price today"
+      },
+      "average_tomorrow": {
+        "name": "Average price tomorrow"
+      }
+    }
+  }
 }
