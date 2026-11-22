@@ -78,6 +78,20 @@ def _tom_avg(rows, now):
     return s["avg"] if s else None
 
 
+def _tom(rows, now):
+    return calc.stats(calc.day_rows(rows, now + timedelta(days=1)))
+
+
+def _tom_min(rows, now):
+    s = _tom(rows, now)
+    return s["min"]["price"] if s else None
+
+
+def _tom_max(rows, now):
+    s = _tom(rows, now)
+    return s["max"]["price"] if s else None
+
+
 DESCRIPTIONS = [
     Desc("price", "Price", _cur),
     Desc("next_price", "Next price", _nxt),
@@ -85,6 +99,8 @@ DESCRIPTIONS = [
     Desc("highest_today", "Highest price today", _max),
     Desc("average_today", "Average price today", _avg),
     Desc("average_tomorrow", "Average price tomorrow", _tom_avg),
+    Desc("lowest_tomorrow", "Lowest price tomorrow", _tom_min),
+    Desc("highest_tomorrow", "Highest price tomorrow", _tom_max),
 ]
 
 

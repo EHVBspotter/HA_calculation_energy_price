@@ -63,6 +63,12 @@
       },
       "average_tomorrow": {
         "name": "Average price tomorrow"
+      },
+      "lowest_tomorrow": {
+        "name": "Lowest price tomorrow"
+      },
+      "highest_tomorrow": {
+        "name": "Highest price tomorrow"
       }
     }
   }
