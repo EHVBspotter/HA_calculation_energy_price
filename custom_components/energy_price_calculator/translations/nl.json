@@ -63,6 +63,12 @@
       },
       "average_tomorrow": {
         "name": "Gemiddelde prijs morgen"
+      },
+      "lowest_tomorrow": {
+        "name": "Laagste prijs morgen"
+      },
+      "highest_tomorrow": {
+        "name": "Hoogste prijs morgen"
       }
     }
   }

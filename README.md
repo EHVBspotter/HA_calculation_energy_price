@@ -29,7 +29,7 @@ Dit is gelijk aan de oude ENTSO-e template `((current_price + 0.021 + 0.092) * 1
 
 ## Sensoren per leverancier
 - Prijs (nu), met attribuut `prices` (`from`, `till`, `time`, `price`) voor grafieken zoals apexcharts-card
-- Volgende prijs, laagste / hoogste / gemiddelde prijs vandaag, gemiddelde prijs morgen
+- Volgende prijs, laagste / hoogste / gemiddelde prijs vandaag, en laagste / hoogste / gemiddelde prijs morgen (zodra de bron de prijzen van morgen levert)
 
 Eenheid: €/kWh (stroom) of €/m³ (gas).
 
